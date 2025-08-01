@@ -299,10 +299,10 @@ const evenClass = [
               :attribute-regex="element.regex_pattern"
               :regex-cue="element.regex_cue"
               :contact-id="contactId"
+	            :conversation-id="conversationId"
               @update="onUpdate"
               @delete="onDelete"
               @copy="onCopy"
-	      :conversation-id="conversationId"
             />
           </template>
         </div>
