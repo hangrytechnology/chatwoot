@@ -25,6 +25,9 @@ export default {
     isUrgent() {
       return this.priority === CONVERSATION_PRIORITY.URGENT;
     },
+    isHigh() {
+      return this.priority === CONVERSATION_PRIORITY.HIGH;
+    },
   },
 };
 </script>
@@ -41,7 +44,8 @@ export default {
     class="shrink-0 rounded-sm inline-flex items-center justify-center w-3.5 h-3.5"
     :class="{
       'bg-n-ruby-4 text-n-ruby-10': isUrgent,
-      'bg-n-slate-4 text-n-slate-11': !isUrgent,
+      'bg-n-amber-4 text-n-amber-10': isHigh,
+      'bg-n-slate-4 text-n-slate-11': !isUrgent && !isHigh,
     }"
   >
     <fluent-icon
