@@ -67,7 +67,7 @@ class Whatsapp::Providers::WhatsappCloudService < Whatsapp::Providers::BaseServi
   end
 
   def delete_csat_template(template_name = nil)
-    template_name ||= Whatsapp::CsatTemplateNameService.csat_template_name(whatsapp_channel.inbox.id)
+    template_name ||= CsatTemplateNameService.csat_template_name(whatsapp_channel.inbox.id)
     csat_template_service.delete_template(template_name)
   end
 
@@ -205,3 +205,5 @@ class Whatsapp::Providers::WhatsappCloudService < Whatsapp::Providers::BaseServi
     process_response(response, message)
   end
 end
+
+Whatsapp::Providers::WhatsappCloudService.prepend_mod_with('Whatsapp::Providers::WhatsappCloudService')
