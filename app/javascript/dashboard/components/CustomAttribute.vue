@@ -203,6 +203,9 @@ export default {
     createCoreTicket() {
         window.open(`https://core.ishangry.com/api/ce-tracker/create-chatwoot-ticket/${this.conversationId}`, '_blank')
     },
+    createCoreMyTicket() {
+        window.open(`https://core-my.ishangry.com/api/ce-tracker/create-chatwoot-ticket/${this.conversationId}`, '_blank')
+    },
   },
 };
 </script>
@@ -233,7 +236,7 @@ export default {
               class="mt-0.5"
             />
           </span>
-	  <NextButton
+	        <NextButton
              v-if="showActions && attributeKey === 'core_ticket_count'"
              v-tooltip.left="'Create ticket on Core ERP'"
              class="w-6 mr-2"
@@ -241,6 +244,15 @@ export default {
              @click="createCoreTicket"
           >
             <img src="https://core.ishangry.com/web/image/res.company/1/favicon" />
+          </NextButton>
+	        <NextButton
+             v-if="showActions && attributeKey === 'core_my_ticket_count'"
+             v-tooltip.left="'Create ticket on Core MY ERP'"
+             class="w-6 mr-2"
+             variant="link"
+             @click="createCoreMyTicket"
+          >
+            <img src="https://core-my.ishangry.com/web/image/res.company/1/favicon" />
           </NextButton>
           <NextButton
             v-if="showActions && hasValue"

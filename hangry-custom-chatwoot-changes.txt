@@ -18,8 +18,8 @@
       },
     }
  - changes to app/javascript/dashboard/routes/dashboard/conversation/customAttributes/CustomAttributes.vue
-    add props to custom-attribute
-    <custom-attribute
+    add props to <CustomAttribute
+    <CustomAttribute
       :conversation-id="conversationId" />
 
 2. Change instagram name generation to use username
@@ -30,29 +30,23 @@
 
 3. Change mute conversation to mark pending macro
  - changes to app/services/action_service.rb
-    def mute_coversation(_params)
+    def mute_conversation(_params)
       @conversation.pending!
     end
 
-4. Update assign agent macro to be able to unassign agent
- - changes to app/javascript/dashboard/composables/useMacros.js
-    case 'assign_agent':
-        return [{id: 'nil', name: 'None'}, { id: 'self', name: 'Self' }, ...agents.value];
-
-5. Add conversationId to contact info panel
+4. Add conversationId to contact info panel
  - changes to app/javascript/dashboard/routes/dashboard/conversation/ContactPanel.vue
     <ContactInfo
        :contact="contact"
        :channel-type="channelType"
        :conversation-id="conversationId"
-       @toggle-panel="onPanelToggle"
      />
  - changes to app/javascript/dashboard/routes/dashboard/conversation/contact/ContactInfo.vue
     props: {
-	conversationId: {
-	  type: [Number, String],
-	  required: true,
-	},
+      conversationId: {
+        type: [Number, String],
+        required: true,
+      },
     }
 
     <ContactInfoRow
